@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "../src/components/header";
+import SignUp from "../src/components/signUp";
+import Login from "../src/components/login";
+import RequireAuth from "./components/requireauth";
+import HomePage from "./components/homePage";
+import CategoryPage from "./components/CategoryPage"; // New component
+import Bag from "./components/bags";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/luxury" element={<LuxuryPage />} />
+        <Route path="/category/:category" element={<CategoryPage />} /> 
+        <Route
+          path="/cliq-cash"
+          element={
+            <RequireAuth>
+              <CliqCashPage />
+            </RequireAuth>
+          }
+        />
+        <Route path="/gift-card" element={<GiftCardPage />} />
+        <Route path="/cliq-care" element={<CliqCarePage />} />
+        <Route
+          path="/track-orders"
+          element={
+            <RequireAuth>
+              <TrackOrdersPage />
+            </RequireAuth>
+          }
+        />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/bag" element={<Bag />} />
+      </Routes>
+    </Router>
   );
-}
+};
+
+const LuxuryPage = () => <div>Luxury Page</div>;
+const CliqCashPage = () => <div>CLiQ Cash Page</div>;
+const GiftCardPage = () => <div>Gift Card Page</div>;
+const CliqCarePage = () => <div>CLiQ Care Page</div>;
+const TrackOrdersPage = () => <div>Track Orders Page</div>;
 
 export default App;
