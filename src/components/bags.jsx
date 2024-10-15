@@ -10,7 +10,7 @@ const Bag = () => {
   useEffect(() => {
     const fetchBagItems = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/bag`); 
+        const response = await axios.get(`https://tatacliq-backend-2.onrender.com/api/bag`); 
         setBagItems(response.data);
         setLoading(false);         
       } catch (err) {

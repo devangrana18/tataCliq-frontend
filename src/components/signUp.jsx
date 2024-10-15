@@ -18,7 +18,7 @@ const SignUp = () => {
         password,
       };
   
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/signup`, reqData);
+      const response = await axios.post(`https://tatacliq-backend-2.onrender.com/api/auth/signup`, reqData);
   
       if (response.status === 201) {  
         alert(response.data.message); 

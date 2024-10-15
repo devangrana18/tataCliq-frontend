@@ -13,7 +13,7 @@ const Header = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/products/search?q=${query}`
+        `https://tatacliq-backend-2.onrender.com/api/products/search?q=${query}`
       );
       setProducts(response.data);
       if (!response) {

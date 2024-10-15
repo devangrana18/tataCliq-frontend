@@ -22,7 +22,7 @@ const CategoryPage = () => {
   const handleAddToBag = async (product) => {
     try {
 
-      await axios.post(`${process.env.REACT_APP_API_URL}/api/bag`, { productId: product._id });
+      await axios.post(`https://tatacliq-backend-2.onrender.com/api/bag`, { productId: product._id });
       alert(`${product.name} added to bag`);
     } catch (error) {
       console.error("Error adding to bag", error);

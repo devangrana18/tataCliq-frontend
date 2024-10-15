@@ -93,9 +93,8 @@ const HomePage = () => {
       offer: "UP TO 20% OFF",
     },
   ]);
-
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/categories`).then((response) => {
+    axios.get(`https://tatacliq-backend-2.onrender.com/categories`).then((response) => {
       setCategories(response.data);
     });
     

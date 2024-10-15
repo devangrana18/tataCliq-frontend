@@ -15,7 +15,7 @@ const Login = ({ onClose }) => {
         password,
       };
   
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, reqData);
+      const response = await axios.post(`https://tatacliq-backend-2.onrender.com/api/auth/login`, reqData);
   
       if (response.status === 200) {
         const token = response.data.token; 
